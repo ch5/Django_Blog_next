@@ -8,10 +8,12 @@
     <div class='col-sm-6 col-sm-offset-3'>
         <p>{{ comment.content }}</p>
         <hr>
-        <footer>{{ comment.user }} | {{ comment.timestamp|timesince}} ago | {% if comment.children.count > 0 %}
+        <footer>{{ comment.user }} | {{ comment.timestamp|timesince}} ago |
+        {% if comment.children.count > 0 %}
             {{ comment.children.count }} Comments
             {% if comment.children.count > 1 %}
-            {% endif %}{% endif %} |
+            {% endif %}
+        {% endif %} |
             {% if request.user == comment.user %}
                 <a href="{{ comment.get_delete_url }}"> Delete </a>
                 <hr />
