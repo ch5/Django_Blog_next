@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% load urlify %}
+{% load crispy_forms_tags %}
+{% block head_title %}
+    {{ instance.title }} | {{ block.super }}
+{% endblock head_title %}
+{% block content %}
+    <div class='col-sm-6 col-sm-offset-3'>
+         <h1>{{ title }} <small>{% if instance.draft %}<span style='color:red;'>Draft</span> {% endif %}{{ instance.publish }}</small></h1>
+        {% if instance.user.get_full_name %}
+            <p>Author: {{ instance.user.get_full_name }}</p>
+        {% endif %}
+        <p><div class="fb-like" data-href="{{ request.build_absolute_uri }}" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
+        <hr/>
+    </p>
+        {% if instance.image %}
+            <img src='{{ instance.image.url }}' class='img-responsive' /> <br>
+        {% endif %}
+    <div class='row'>
+        <div class='col-sm-12'>
+            <div class='post-detail-item'>
+                {{ instance.get_markdown}}
+            </div>
+            <hr/>
+            <br/>
+            <div>
+                <p class="lead">Comment</p>
+                <form method="POST" action="."> {% csrf_token %}
+                    {{ comment_form|crispy }}
+                    <input type="submit" value="Post comment" class="btn btn-default">
+                </form>
+                <hr>
+                {% for comment in comments %}
+                <blockquote>
+                        <p>{{ comment.content }}</p>
+                    <footer>{{ comment.user }} | {{ comment.timestamp|timesince}} ago | {% if comment.children.count > 0 %}
+                    {{ comment.children.count }} Comments
+                    {% if comment.children.count > 1 %}
+                    {% endif %}s | {% endif %}<a class="comment-replay-btn" href="#">Replay</a> | <a class="" href="{{ comment.get_absolute_url }}">Thread</a></footer>
+                    <div class="comment-replay">
+                        {% for child_comment in comment.children %}
+                        <blockquote>
+                                <p>{{ child_comment.content }}</p>
+                            <footer>{{ child_comment.user }} | {{ child_comment.timestamp|timesince}} ago</footer>
+                         </blockquote>
+                        {% endfor %}
+                    <form method="POST" action="."> {% csrf_token %}
+                        {{ comment_form|crispy }}
+                        <input type="hidden" name="parent_id" value="{{ comment.id }}">
+                        <input type="submit" value="Replay" class="btn btn-primary">
+                    </form>
+                    </div>
+            </blockquote>
+            <hr>
+        {% endfor %}
+    </div>
+</div>
+</div>
+</div>
+{% endblock content %}
