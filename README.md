@@ -10,5 +10,6 @@
 - thread
 - replay comment
 - Dynamic previw form data
-
+- Pagination
+- Slug
 
