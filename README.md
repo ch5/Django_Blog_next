@@ -12,6 +12,7 @@
 - Dynamic previw form data
 - Pagination
 - Slug
+- Search content
 
 # Install melalui pip 
 
