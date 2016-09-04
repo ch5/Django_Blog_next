@@ -90,7 +90,7 @@ def post_list(request):
 				Q(user__first_name__icontains=query) |
 				Q(user__last_name__icontains=query)
 				).distinct()
-	paginator = Paginator(queryset_list, 5)
+	paginator = Paginator(queryset_list, 3)
 	page_request_var = "page"
 	page = request.GET.get(page_request_var)
 	try:
