@@ -1,6 +1,7 @@
 # Django 1.9 lanjutan
 
-## Gunakan koneksi internet untuk hasil terbaik karena beberapa hal terhubung CDN 
+## Gunakan koneksi internet untuk hasil terbaik karena beberapa 
+## content harus terhubung CDN 
 - username = admin
 - password = asdf1234
 
