@@ -1,5 +1,6 @@
 # Django 1.9 lanjutan
 
+## Gunakan koneksi internet untuk hasil terbaik karena beberapa hal terhubung CDN 
 - username = admin
 - password = asdf1234
 
@@ -13,6 +14,8 @@
 - Pagination
 - Slug
 - Search content
+- Django preview with pagedown and Jquery
+- Draft with bolean value
 
 # Install melalui pip 
 
