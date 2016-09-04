@@ -1,4 +1,4 @@
-from urllib import quote_plus
+# from urllib import quote_plus
 from django.contrib import messages
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.db.models import Q
@@ -35,7 +35,7 @@ def post_detail(request, slug=None):
 		if not request.user.is_staff or not request.user.is_superuser:
 			raise Http404
 
-	share_string = quote_plus(instance.content)
+	# share_string = quote_plus(instance.content)
 
 	initial_data = {
 		"content_type":instance.get_content_type,
@@ -70,7 +70,7 @@ def post_detail(request, slug=None):
 	context = {
 		"title": instance.title,
 		"instance": instance,
-		"share_string": share_string,
+		# "share_string": share_string,
 		"comments":comments,
 		"comment_form":form,
 	}

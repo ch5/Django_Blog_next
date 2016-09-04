@@ -6,6 +6,7 @@
 - password = asdf1234
 
 # Fitur
+- Image field responsive
 - markdown
 - Django crispy
 - comment / Fade togle 
