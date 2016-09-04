@@ -1,8 +1,6 @@
 # Django 1.9 lanjutan
-## untuk melihat sebagian fitur saya screenshoot di folder ScreenShoot_Example
+## untuk melihat sebagian fitur saya screenshoot di folder ScreenShoot_Example, Gunakan koneksi internet untuk hasil terbaik karena beberapa content harus terhubung CDN 
 
-
-## Gunakan koneksi internet untuk hasil terbaik karena beberapa content harus terhubung CDN 
 - username = admin
 - password = asdf1234
 
